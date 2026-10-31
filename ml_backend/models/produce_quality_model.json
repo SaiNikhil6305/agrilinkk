@@ -1,0 +1,135 @@
+{
+ "classes": [
+  "Fair",
+  "Good",
+  "Premium"
+ ],
+ "input_size": 224,
+ "preprocess": "caffe",
+ "arch": "ResNet50",
+ "supported_crops": [
+  "Apple",
+  "Banana",
+  "Guava",
+  "Lemon",
+  "Lime",
+  "Orange",
+  "Pomegranate",
+  "Tomato"
+ ],
+ "version": "produce_quality_model_ResNet50@202610310613",
+ "selection": "highest validation macro-F1 among 5 architectures; test split untouched until reporting",
+ "dataset": {
+  "name": "FruitNet (Meshram & Patil 2022, via AgML) + AgML Tomato quality + jojogo9/freshness",
+  "license": "CC-BY-4.0 / CC-BY-4.0 / MIT",
+  "label_mapping": "Premium=Good/fresh; Good=FruitNet Mixed (sound and defective fruit together); Fair=Bad/rotten",
+  "images": 1920,
+  "duplicates_grouped": 0,
+  "split": {
+   "train": 1342,
+   "val": 290,
+   "test": 288
+  }
+ },
+ "test_metrics": {
+  "accuracy": 0.9583,
+  "macro_precision": 0.9563,
+  "macro_recall": 0.963,
+  "macro_f1": 0.9591,
+  "per_class": {
+   "Fair": {
+    "precision": 0.9626,
+    "recall": 0.9537,
+    "f1": 0.9581,
+    "support": 108
+   },
+   "Good": {
+    "precision": 0.9351,
+    "recall": 1.0,
+    "f1": 0.9664,
+    "support": 72
+   },
+   "Premium": {
+    "precision": 0.9712,
+    "recall": 0.9352,
+    "f1": 0.9528,
+    "support": 108
+   }
+  },
+  "confusion_matrix": [
+   [
+    103,
+    2,
+    3
+   ],
+   [
+    0,
+    72,
+    0
+   ],
+   [
+    4,
+    3,
+    101
+   ]
+  ],
+  "test_images": 288
+ },
+ "benchmark": {
+  "VGG16": {
+   "val_macro_f1": 0.9793,
+   "test_accuracy": 0.9514,
+   "test_macro_precision": 0.9492,
+   "test_macro_recall": 0.9552,
+   "test_macro_f1": 0.9515,
+   "params": 14780739,
+   "train_seconds": 434.1,
+   "cpu_inference_ms_per_image": 145.3
+  },
+  "ResNet50": {
+   "val_macro_f1": 0.9839,
+   "test_accuracy": 0.9583,
+   "test_macro_precision": 0.9563,
+   "test_macro_recall": 0.963,
+   "test_macro_f1": 0.9591,
+   "params": 23850371,
+   "train_seconds": 207.3,
+   "cpu_inference_ms_per_image": 51.0
+  },
+  "MobileNetV2": {
+   "val_macro_f1": 0.9786,
+   "test_accuracy": 0.9514,
+   "test_macro_precision": 0.9501,
+   "test_macro_recall": 0.9568,
+   "test_macro_f1": 0.9529,
+   "params": 2422339,
+   "train_seconds": 74.7,
+   "cpu_inference_ms_per_image": 15.6
+  },
+  "EfficientNetB0": {
+   "val_macro_f1": 0.9839,
+   "test_accuracy": 0.9688,
+   "test_macro_precision": 0.9657,
+   "test_macro_recall": 0.9722,
+   "test_macro_f1": 0.9685,
+   "params": 4213926,
+   "train_seconds": 88.8,
+   "cpu_inference_ms_per_image": 19.1
+  },
+  "CustomCNN": {
+   "val_macro_f1": 0.9135,
+   "test_accuracy": 0.8854,
+   "test_macro_precision": 0.8851,
+   "test_macro_recall": 0.8951,
+   "test_macro_f1": 0.8876,
+   "params": 258627,
+   "train_seconds": 751.4,
+   "cpu_inference_ms_per_image": 4.7
+  }
+ },
+ "package": {
+  "format": "imagenet_backbone+head",
+  "backbone": "ResNet50",
+  "head_file": "produce_quality_model_head.keras"
+ }
+}

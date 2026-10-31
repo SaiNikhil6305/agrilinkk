@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign in · Agri-Link</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body class="role-farmer">
+<div class="auth-wrap">
+  <aside class="auth-side">
+    <div class="brand" style="color:#fff"><div class="brand-logo"><i class="fa-solid fa-leaf"></i></div>
+      <div><b>Agri-Link</b><small style="color:#bbf7d0">Kisan Quality & Fair Market Hub</small></div></div>
+    <h1>From farm to market — transparent, intelligent, connected.</h1>
+    <ul>
+      <li><i class="fa-solid fa-camera"></i> AI crop quality grading from a photo</li>
+      <li><i class="fa-solid fa-boxes-stacked"></i> FPOs pool smallholder batches into bulk lots</li>
+      <li><i class="fa-solid fa-building"></i> Institutional buyers procure with full traceability</li>
+      <li><i class="fa-solid fa-scale-balanced"></i> Every rupee to farmers, FPO and logistics shown openly</li>
+    </ul>
+  </aside>
+  <main class="auth-main">
+    <div class="auth-card card">
+      <div class="tabs" role="tablist">
+        <button class="on" data-tab="signin" role="tab">Sign in</button>
+        <button data-tab="signup" role="tab">Create account</button>
+      </div>
+      <div id="msg" aria-live="polite"></div>
+
+      <form id="signin" novalidate>
+        <label class="f">Email or phone<input name="identifier" autocomplete="username" required></label><br>
+        <label class="f">Password<input name="password" type="password" autocomplete="current-password" required></label>
+        <p class="small" style="text-align:right;margin:8px 0"><a href="#" id="forgot">Forgot password?</a></p>
+        <button class="btn btn-primary" style="width:100%">Sign in</button>
+      </form>
+
+      <form id="signup" novalidate hidden>
+        <div class="roles" role="radiogroup" aria-label="Account type">
+          <label><input type="radio" name="role" value="farmer" checked><i class="fa-solid fa-tractor"></i>Farmer</label>
+          <label><input type="radio" name="role" value="aggregator"><i class="fa-solid fa-warehouse"></i>FPO</label>
+          <label><input type="radio" name="role" value="buyer"><i class="fa-solid fa-building"></i>Buyer</label>
+        </div><br>
+        <div class="form-grid">
+          <label class="f span2">Full name<input name="name" required minlength="2"></label>
+          <label class="f">Email<input name="email" type="email" autocomplete="email"></label>
+          <label class="f">Mobile<input name="phone" inputmode="tel" placeholder="+91…"></label>
+          <label class="f span2" id="orgField" hidden>Organisation<input name="organisation"></label>
+          <label class="f span2">Village / town, district<input name="location"></label>
+          <label class="f span2">Password<input name="password" type="password" minlength="8" autocomplete="new-password" required>
+            <span class="hint">At least 8 characters</span></label>
+        </div><br>
+        <button class="btn btn-primary" style="width:100%">Create account</button>
+      </form>
+
+      <div id="fbBlock">
+        <div class="divider">or</div>
+        <button class="btn btn-outline" id="google" style="width:100%"><i class="fa-brands fa-google"></i> Continue with Google</button>
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <input id="otpPhone" class="f" style="flex:1;border:1px solid #cbd5e1;border-radius:10px;padding:10px" placeholder="+91 mobile for OTP" inputmode="tel" aria-label="Mobile number for OTP">
+          <button class="btn btn-outline" id="sendOtp">Send OTP</button>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:8px" id="otpRow" hidden>
+          <input id="otpCode" style="flex:1;border:1px solid #cbd5e1;border-radius:10px;padding:10px" placeholder="6-digit code" inputmode="numeric" aria-label="OTP code">
+          <button class="btn btn-primary" id="verifyOtp">Verify</button>
+        </div>
+        <div id="recaptcha"></div>
+      </div>
+      <p class="small muted" id="fbOff" hidden>Google and phone OTP sign-in will appear once Firebase is configured on the server.</p>
+    </div>
+  </main>
+</div>
+
+<div class="modal-bg" id="roleModal" hidden>
+  <div class="modal">
+    <h3>Choose your account type</h3>
+    <p class="muted small">This is set once and cannot be changed later.</p>
+    <div class="roles">
+      <label><input type="radio" name="frole" value="farmer" checked><i class="fa-solid fa-tractor"></i>Farmer</label>
+      <label><input type="radio" name="frole" value="aggregator"><i class="fa-solid fa-warehouse"></i>FPO</label>
+      <label><input type="radio" name="frole" value="buyer"><i class="fa-solid fa-building"></i>Buyer</label>
+    </div><br>
+    <button class="btn btn-primary" id="roleGo" style="width:100%">Continue</button>
+  </div>
+</div>
+<script type="module" src="/login.js"></script>
+</body>
+</html>

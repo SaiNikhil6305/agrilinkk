@@ -1,0 +1,137 @@
+{
+ "classes": [
+  "Arborio",
+  "Basmati",
+  "Ipsala",
+  "Jasmine",
+  "Karacadag"
+ ],
+ "input_size": 224,
+ "arch": "mobilenet",
+ "preprocess": "mobilenet_v2",
+ "version": "rice_variety_model@202610310356",
+ "dataset": {
+  "path": "Rice_Image_Dataset",
+  "name": "Rice Image Dataset (Koklu & Cinar 2021), HF mirror nateraw/rice-image-dataset",
+  "license": "CC0-1.0",
+  "images": 3000,
+  "corrupt_removed": 0,
+  "near_duplicates_grouped": 18,
+  "split": {
+   "train": 2096,
+   "val": 450,
+   "test": 454
+  },
+  "max_per_class": 600
+ },
+ "test_metrics": {
+  "test_images": 454,
+  "accuracy": 0.9736,
+  "macro_precision": 0.9756,
+  "macro_recall": 0.9735,
+  "macro_f1": 0.9739,
+  "per_class": {
+   "Arborio": {
+    "precision": 0.9889,
+    "recall": 0.9889,
+    "f1": 0.9889,
+    "support": 90
+   },
+   "Basmati": {
+    "precision": 0.9882,
+    "recall": 0.9333,
+    "f1": 0.96,
+    "support": 90
+   },
+   "Ipsala": {
+    "precision": 1.0,
+    "recall": 0.967,
+    "f1": 0.9832,
+    "support": 91
+   },
+   "Jasmine": {
+    "precision": 0.901,
+    "recall": 0.9891,
+    "f1": 0.943,
+    "support": 92
+   },
+   "Karacadag": {
+    "precision": 1.0,
+    "recall": 0.989,
+    "f1": 0.9945,
+    "support": 91
+   }
+  },
+  "confusion_matrix": [
+   [
+    89,
+    0,
+    0,
+    1,
+    0
+   ],
+   [
+    0,
+    84,
+    0,
+    6,
+    0
+   ],
+   [
+    0,
+    0,
+    88,
+    3,
+    0
+   ],
+   [
+    0,
+    1,
+    0,
+    91,
+    0
+   ],
+   [
+    1,
+    0,
+    0,
+    0,
+    90
+   ]
+  ]
+ },
+ "history": {
+  "accuracy": [
+   0.8272900581359863,
+   0.9398854970932007,
+   0.9499045610427856,
+   0.9460877776145935,
+   0.9656488299369812,
+   0.9556297659873962
+  ],
+  "loss": [
+   0.4393434226512909,
+   0.17987434566020966,
+   0.14085960388183594,
+   0.1431037336587906,
+   0.10195968300104141,
+   0.12301168590784073
+  ],
+  "val_accuracy": [
+   0.9399999976158142,
+   0.9422222375869751,
+   0.9444444179534912,
+   0.948888897895813,
+   0.9311110973358154,
+   0.9577777981758118
+  ],
+  "val_loss": [
+   0.19597603380680084,
+   0.15065914392471313,
+   0.14972379803657532,
+   0.16088221967220306,
+   0.20544998347759247,
+   0.11941805481910706
+  ]
+ }
+}

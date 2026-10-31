@@ -1,0 +1,130 @@
+{
+ "classes": [
+  "Fair",
+  "Good",
+  "Premium"
+ ],
+ "input_size": 224,
+ "preprocess": "caffe",
+ "arch": "ResNet50",
+ "version": "crop_quality_ResNet50@202610310459",
+ "selection": "highest validation macro-F1 among 5 architectures; test split untouched until reporting",
+ "dataset": {
+  "name": "Wild Rice Kernel Quality (Univ. of Manitoba) via AgML / Hugging Face Project-AgML/wild_rice_kernel_quality_classification",
+  "license": "CC-BY-4.0",
+  "label_mapping": "Premium=healthy_large+healthy_medium; Good=broken_low+discoloured_low; Fair=broken_high+discoloured_high+insect_infected+unhulled",
+  "images": 1800,
+  "duplicates_grouped": 0,
+  "split": {
+   "train": 1260,
+   "val": 270,
+   "test": 270
+  }
+ },
+ "test_metrics": {
+  "accuracy": 0.937,
+  "macro_precision": 0.9381,
+  "macro_recall": 0.937,
+  "macro_f1": 0.9373,
+  "per_class": {
+   "Fair": {
+    "precision": 0.9655,
+    "recall": 0.9333,
+    "f1": 0.9492,
+    "support": 90
+   },
+   "Good": {
+    "precision": 0.8936,
+    "recall": 0.9333,
+    "f1": 0.913,
+    "support": 90
+   },
+   "Premium": {
+    "precision": 0.9551,
+    "recall": 0.9444,
+    "f1": 0.9497,
+    "support": 90
+   }
+  },
+  "confusion_matrix": [
+   [
+    84,
+    6,
+    0
+   ],
+   [
+    2,
+    84,
+    4
+   ],
+   [
+    1,
+    4,
+    85
+   ]
+  ],
+  "test_images": 270
+ },
+ "benchmark": {
+  "VGG16": {
+   "val_macro_f1": 0.9447,
+   "test_accuracy": 0.937,
+   "test_macro_precision": 0.9381,
+   "test_macro_recall": 0.937,
+   "test_macro_f1": 0.9373,
+   "params": 14780739,
+   "train_seconds": 411.3,
+   "cpu_inference_ms_per_image": 155.1
+  },
+  "ResNet50": {
+   "val_macro_f1": 0.9741,
+   "test_accuracy": 0.937,
+   "test_macro_precision": 0.9381,
+   "test_macro_recall": 0.937,
+   "test_macro_f1": 0.9373,
+   "params": 23850371,
+   "train_seconds": 210.1,
+   "cpu_inference_ms_per_image": 46.5
+  },
+  "MobileNetV2": {
+   "val_macro_f1": 0.9329,
+   "test_accuracy": 0.9333,
+   "test_macro_precision": 0.9332,
+   "test_macro_recall": 0.9333,
+   "test_macro_f1": 0.9333,
+   "params": 2422339,
+   "train_seconds": 79.1,
+   "cpu_inference_ms_per_image": 22.3
+  },
+  "EfficientNetB0": {
+   "val_macro_f1": 0.9629,
+   "test_accuracy": 0.9593,
+   "test_macro_precision": 0.9592,
+   "test_macro_recall": 0.9593,
+   "test_macro_f1": 0.9591,
+   "params": 4213926,
+   "train_seconds": 73.6,
+   "cpu_inference_ms_per_image": 16.7
+  },
+  "CustomCNN": {
+   "val_macro_f1": 0.8977,
+   "test_accuracy": 0.8593,
+   "test_macro_precision": 0.8691,
+   "test_macro_recall": 0.8593,
+   "test_macro_f1": 0.8602,
+   "params": 258627,
+   "train_seconds": 697.1,
+   "cpu_inference_ms_per_image": 2.8
+  }
+ },
+ "supported_crops": [
+  "Rice",
+  "Paddy",
+  "Wild rice"
+ ],
+ "package": {
+  "format": "imagenet_backbone+head",
+  "backbone": "ResNet50",
+  "head_file": "crop_quality_model_final_head.keras"
+ }
+}

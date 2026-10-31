@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: agri-link
+    runtime: docker
+    healthCheckPath: /api/health
+    disk:
+      name: agri-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: AGRI_DB_PATH
+        value: /data/agri_link.db
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: FIREBASE_PROJECT_ID
+        value: agrilink-d51ae
+      - key: DATA_GOV_IN_API_KEY
+        sync: false
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: RAZORPAY_WEBHOOK_SECRET
+        sync: false

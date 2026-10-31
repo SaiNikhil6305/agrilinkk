@@ -1,0 +1,22 @@
+[
+ {
+  "file": "healthy_medium_014.jpg",
+  "true_grade": "A",
+  "confidence": 0.5721
+ },
+ {
+  "file": "Pomegranate__fruitnet_0002.jpg",
+  "true_grade": "B",
+  "confidence": 0.4215
+ },
+ {
+  "file": "Tomato__agmltomato_0002.jpg",
+  "true_grade": "C",
+  "confidence": 0.5295
+ },
+ {
+  "file": "Apple__fruitnet_0000.jpg",
+  "true_grade": "A",
+  "confidence": 0.528
+ }
+]

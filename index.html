@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agri-Link · Kisan Quality & Fair Market Hub</title>
+<meta name="description" content="AI crop quality grading, FPO aggregation and transparent procurement for Indian farmers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<a class="sr-only" href="#view">Skip to content</a>
+<header class="topbar">
+  <button class="icon-btn menu-toggle" id="menuBtn" aria-label="Menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  <a class="brand" href="#dashboard"><div class="brand-logo"><i class="fa-solid fa-leaf"></i></div>
+    <div><b>Agri-Link</b><small>Kisan Quality & Fair Market Hub</small></div></a>
+  <div class="spacer"></div>
+  <div class="role-pill" id="rolePill"></div>
+  <select class="lang-select" id="lang" aria-label="Language"></select>
+  <button class="icon-btn" id="bell" aria-label="Notifications"><i class="fa-solid fa-bell"></i><span class="badge" id="unread" hidden></span></button>
+  <button class="icon-btn" id="logout" aria-label="Log out" title="Log out"><i class="fa-solid fa-right-from-bracket"></i></button>
+</header>
+<nav class="mainnav" id="nav" aria-label="Main"></nav>
+<div class="ticker" aria-label="MSP reference rates"><div class="ticker-track" id="ticker"></div></div>
+<div id="heroSlot"></div>
+<main id="view" tabindex="-1"></main>
+<footer class="site">Agri-Link · Weather: Open-Meteo · Geocoding: BigDataCloud / OpenStreetMap Nominatim · MSP: Govt. of India (PIB) · Mandi prices: Agmarknet via data.gov.in</footer>
+
+<aside class="drawer" id="drawer" aria-label="Notifications">
+  <header><b><i class="fa-solid fa-bell"></i> <span data-i18n="notifications">Notifications</span></b>
+    <button class="icon-btn" id="closeDrawer" aria-label="Close"><i class="fa-solid fa-xmark"></i></button></header>
+  <div class="list" id="noteList"></div>
+</aside>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<script type="module" src="/main.js"></script>
+</body>
+</html>

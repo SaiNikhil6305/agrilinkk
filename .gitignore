@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+ml_backend/agri_link.db*
+ml_backend/__pycache__/
+crop_quality_results/*/*.jpg
+crop_quality_results/metadata.json
+datasets/
+_postgres_draft/
