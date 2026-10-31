@@ -5,5 +5,7 @@ ml_backend/agri_link.db*
 ml_backend/__pycache__/
 crop_quality_results/*/*.jpg
 crop_quality_results/metadata.json
-datasets/
+datasets/raw/
+datasets/quality/
+datasets/produce/
 _postgres_draft/
